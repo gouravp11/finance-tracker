@@ -23,16 +23,16 @@ function CategorySelect({ options, value, onSelect, placeholder }) {
             <button
                 type="button"
                 onClick={() => setOpen((v) => !v)}
-                className="mt-1 block w-full border rounded px-3 py-2 text-left flex items-center justify-between"
+                className="mt-1 block w-full border dark:border-slate-600 rounded px-3 py-2 text-left flex items-center justify-between bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
             >
-                <span className={value ? "text-gray-900" : "text-gray-400"}>{value || placeholder}</span>
-                <svg className="ml-2 h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
+                <span className={value ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-slate-400"}>{value || placeholder}</span>
+                <svg className="ml-2 h-4 w-4 text-gray-500 dark:text-slate-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
             </button>
 
             {open && (
-                <ul className="absolute left-0 right-0 mt-1 z-20 bg-white border rounded shadow max-h-48 overflow-auto">
+                <ul className="absolute left-0 right-0 mt-1 z-20 bg-white dark:bg-slate-700 border dark:border-slate-600 rounded shadow max-h-48 overflow-auto">
                     {options.map((opt) => (
-                        <li key={opt} onClick={() => { onSelect(opt); setOpen(false); }} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">
+                        <li key={opt} onClick={() => { onSelect(opt); setOpen(false); }} className="px-3 py-2 hover:bg-gray-100 dark:hover:bg-slate-600 cursor-pointer text-gray-900 dark:text-white">
                             {opt}
                         </li>
                     ))}
@@ -140,38 +140,38 @@ export default function AddTransactionModal({ isOpen, onClose, transaction: edit
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
             <div className="fixed inset-0 bg-black opacity-50" onClick={onClose} />
 
             <div
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="add-transaction-title"
-                className="relative z-10 w-full max-w-lg bg-white rounded-lg shadow-lg p-6 mx-4"
+                className="relative z-10 w-full sm:max-w-lg bg-white dark:bg-slate-800 rounded-t-2xl sm:rounded-lg shadow-lg p-5 sm:p-6 mx-0 sm:mx-4 max-h-[90dvh] overflow-y-auto"
             >
                 <div className="flex items-center justify-between mb-4">
-                    <h3 id="add-transaction-title" className="text-lg font-semibold">
+                    <h3 id="add-transaction-title" className="text-lg font-semibold dark:text-white">
                         {editingTransaction ? "Edit transaction" : "Add transaction"}
                     </h3>
-                    <button onClick={onClose} aria-label="Close modal" className="text-gray-500 hover:text-gray-700">
+                    <button onClick={onClose} aria-label="Close modal" className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl leading-none">
                         ×
                     </button>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Description</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Description</label>
                         <input
                             name="description"
                             value={form.description}
                             onChange={handleChange}
                             required
-                            className="mt-1 block w-full border rounded px-3 py-2"
+                            className="mt-1 block w-full border dark:border-slate-600 rounded px-3 py-2 bg-white dark:bg-slate-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Amount</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Amount</label>
                         <input
                             name="amount"
                             type="number"
@@ -179,18 +179,18 @@ export default function AddTransactionModal({ isOpen, onClose, transaction: edit
                             value={form.amount}
                             onChange={handleChange}
                             required
-                            className="mt-1 block w-full border rounded px-3 py-2"
+                            className="mt-1 block w-full border dark:border-slate-600 rounded px-3 py-2 bg-white dark:bg-slate-700 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">Type</label>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Type</label>
                             <select
                                 name="type"
                                 value={form.type}
                                 onChange={handleChange}
-                                className="mt-1 block w-full border rounded px-3 py-2"
+                                className="mt-1 block w-full border dark:border-slate-600 rounded px-3 py-2 bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                             >
                                 <option value="expense">Expense</option>
                                 <option value="income">Income</option>
@@ -198,19 +198,19 @@ export default function AddTransactionModal({ isOpen, onClose, transaction: edit
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">Date</label>
+                            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Date</label>
                             <input
                                 name="date"
                                 type="date"
                                 value={form.date}
                                 onChange={handleChange}
-                                className="mt-1 block w-full border rounded px-3 py-2"
+                                className="mt-1 block w-full border dark:border-slate-600 rounded px-3 py-2 bg-white dark:bg-slate-700 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                             />
                         </div>
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Category (optional)</label>
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">Category (optional)</label>
                         <CategorySelect
                             options={CATEGORY_OPTIONS[form.type] || []}
                             value={form.category}
@@ -219,11 +219,11 @@ export default function AddTransactionModal({ isOpen, onClose, transaction: edit
                         />
                     </div>
 
-                    <div className="flex justify-end space-x-2">
-                        <button type="button" onClick={onClose} className="px-4 py-2 border rounded">
+                    <div className="flex justify-end space-x-2 pt-1">
+                        <button type="button" onClick={onClose} className="px-4 py-2 border dark:border-slate-600 rounded text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition">
                             Cancel
                         </button>
-                        <button type="submit" disabled={submitting} className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-60">
+                        <button type="submit" disabled={submitting} className="px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded hover:bg-blue-700 dark:hover:bg-blue-600 disabled:opacity-60 transition">
                             {submitting ? (editingTransaction ? "Updating..." : "Adding...") : (editingTransaction ? "Update transaction" : "Add transaction")}
                         </button>
                     </div>

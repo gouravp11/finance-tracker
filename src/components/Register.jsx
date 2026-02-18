@@ -37,7 +37,7 @@ export default function Register() {
         <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-slate-900">
             <form
                 onSubmit={handleSubmit}
-                className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg w-full max-w-md space-y-5"
+                className="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg w-full max-w-md mx-4 sm:mx-auto space-y-5"
             >
                 <h2 className="text-2xl font-semibold text-center dark:text-white">Create Account</h2>
 

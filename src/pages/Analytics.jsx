@@ -90,11 +90,11 @@ export default function Analytics() {
     }));
 
     return (
-        <div className="container mx-auto px-24 py-8 dark:bg-slate-900 min-h-screen">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Analytics</h1>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-24 py-6 sm:py-8 dark:bg-slate-900 min-h-screen">
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">Analytics</h1>
 
             {/* Summary Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6 border-l-4 border-green-500">
                     <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">Total Income</p>
                     <p className="text-3xl font-bold text-green-600 dark:text-green-400 mt-2">
@@ -116,7 +116,7 @@ export default function Analytics() {
             </div>
 
             {/* Charts Section */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8">
                 {/* Expenses Pie Chart */}
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6">
                     <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Expenses Distribution</h2>
@@ -179,7 +179,7 @@ export default function Analytics() {
             </div>
 
             {/* Monthly Trend Chart */}
-            <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6 mt-8">
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-4 sm:p-6 mt-6 sm:mt-8">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Monthly Trends</h2>
                 {monthlyData.length > 0 ? (
                     <ResponsiveContainer width="100%" height={400}>
@@ -202,7 +202,7 @@ export default function Analytics() {
             </div>
 
             {/* Category Breakdown - Text View */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8">
                 {/* Expenses by Category */}
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6">
                     <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Expenses by Category</h2>
@@ -273,7 +273,7 @@ export default function Analytics() {
             </div>
 
             {/* Monthly Overview */}
-            <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6 mt-8">
+            <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-4 sm:p-6 mt-6 sm:mt-8">
                 <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Monthly Overview</h2>
                 {monthlyData.length > 0 ? (
                     <div className="overflow-x-auto">

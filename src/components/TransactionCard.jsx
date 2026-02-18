@@ -50,35 +50,31 @@ export default function TransactionCard({ transaction }) {
 
     return (
         <>
-            <div className="flex items-center justify-between bg-white dark:bg-slate-800 border rounded dark:border-slate-700 p-4 shadow-sm">
-                <div>
-                    <div className="flex items-center gap-3">
-                        <div>
-                            <div className="text-sm font-medium text-gray-900 dark:text-white">
-                                {transaction.description}
-                            </div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400">
-                                {transaction.category || "—"} • {formatDisplayDate(transaction)}
-                            </div>
-                        </div>
+            <div className="flex items-start sm:items-center justify-between bg-white dark:bg-slate-800 border rounded dark:border-slate-700 p-3 sm:p-4 shadow-sm gap-2">
+                <div className="min-w-0 flex-1">
+                    <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                        {transaction.description}
+                    </div>
+                    <div className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
+                        {transaction.category || "—"} • {formatDisplayDate(transaction)}
                     </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                     <div
-                        className={`px-3 py-1 rounded-full text-sm font-semibold ${isIncome ? "bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400"}`}
+                        className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold ${isIncome ? "bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400"}`}
                     >
                         {sign}${Math.abs(amount)}
                     </div>
                     <button
                         onClick={handleEdit}
-                        className="text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                        className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                         Edit
                     </button>
                     <button
                         onClick={handleDelete}
-                        className="text-sm text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400"
+                        className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400"
                     >
                         Delete
                     </button>
