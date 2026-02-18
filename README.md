@@ -1,1 +1,1 @@
-# finance-tracker
+# Finovo - A Personal Finance Tracker
