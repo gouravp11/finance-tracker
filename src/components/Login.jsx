@@ -33,12 +33,12 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-slate-900">
             <form
                 onSubmit={handleSubmit}
-                className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md space-y-5"
+                className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg w-full max-w-md space-y-5"
             >
-                <h2 className="text-2xl font-semibold text-center">Welcome Back</h2>
+                <h2 className="text-2xl font-semibold text-center dark:text-white">Welcome Back</h2>
 
                 <input
                     name="email"
@@ -46,7 +46,7 @@ export default function Login() {
                     placeholder="Email"
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-slate-400"
                 />
 
                 <input
@@ -55,21 +55,21 @@ export default function Login() {
                     placeholder="Password"
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-slate-400"
                 />
 
                 {error && <p className="text-sm text-red-500 text-center">{error}</p>}
 
                 <button
                     type="submit"
-                    className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                    className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition dark:bg-blue-700 dark:hover:bg-blue-600"
                 >
                     Login
                 </button>
 
-                <div className="text-center text-sm text-gray-600 mt-2">
+                <div className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
                     Don't have an account?{" "}
-                    <Link to="/register" className="text-blue-600 underline">
+                    <Link to="/register" className="text-blue-600 dark:text-blue-400 underline">
                         Register
                     </Link>
                 </div>

@@ -5,11 +5,12 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
+import Analytics from "./pages/Analytics";
 import ProtectedRoute from "./components/ProtectedRoute";
 
 const App = () => {
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="pt-16 min-h-screen bg-gray-50 dark:bg-slate-900">
             <Navbar />
 
             <Routes>
@@ -21,6 +22,14 @@ const App = () => {
                     element={
                         <ProtectedRoute>
                             <Dashboard />
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path="/analytics"
+                    element={
+                        <ProtectedRoute>
+                            <Analytics />
                         </ProtectedRoute>
                     }
                 />

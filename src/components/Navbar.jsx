@@ -1,30 +1,19 @@
 import { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import AddTransactionModal from "./modals/AddTransactionModal";
+import ProfileMenu from "./ProfileMenu";
 
 export default function Navbar() {
-    const { user, logout } = useAuth();
-    const navigate = useNavigate();
-
+    const { user } = useAuth();
     const [showModal, setShowModal] = useState(false);
-
-    const handleLogout = async () => {
-        try {
-            await logout();
-            // replace history entry so the browser back button doesn't return to a protected route
-            navigate("/", { replace: true });
-        } catch (err) {
-            console.error(err);
-        }
-    };
 
     return (
         <>
-            <nav className="bg-white shadow">
+            <nav className="fixed top-0 left-0 right-0 bg-white dark:bg-slate-800 shadow z-40">
                 <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-                    <Link to="/" className="text-xl font-semibold text-blue-600">
-                        Finance Tracker
+                    <Link to="/" className="text-xl font-bold text-blue-600 dark:text-blue-400">
+                        Finovo
                     </Link>
 
                     <div className="flex items-center space-x-4">
@@ -40,22 +29,22 @@ export default function Navbar() {
                                 <NavLink
                                     to="/dashboard"
                                     className={({ isActive }) =>
-                                        isActive ? "text-blue-600" : "text-gray-600"
+                                        isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-600 dark:text-gray-300"
                                     }
                                 >
                                     Dashboard
                                 </NavLink>
 
-                                <span className="text-sm text-gray-700">
-                                    {user.displayName || user.email}
-                                </span>
-
-                                <button
-                                    onClick={handleLogout}
-                                    className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
+                                <NavLink
+                                    to="/analytics"
+                                    className={({ isActive }) =>
+                                        isActive ? "text-blue-600 dark:text-blue-400" : "text-gray-600 dark:text-gray-300"
+                                    }
                                 >
-                                    Logout
-                                </button>
+                                    Analytics
+                                </NavLink>
+
+                                <ProfileMenu />
                             </>
                         ) : (
                             <>

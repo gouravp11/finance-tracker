@@ -4,13 +4,19 @@ import App from "./App";
 import "./index.css";
 import { AuthProvider } from "./context/AuthContext";
 import { TransactionProvider } from "./context/TransactionContext";
+import { UserProvider } from "./context/UserContext";
+import { ThemeProvider } from "./context/ThemeContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <BrowserRouter>
-        <AuthProvider>
-            <TransactionProvider>
-                <App />
-            </TransactionProvider>
-        </AuthProvider>
-    </BrowserRouter>
+    <ThemeProvider>
+        <BrowserRouter>
+            <AuthProvider>
+                <TransactionProvider>
+                    <UserProvider>
+                        <App />
+                    </UserProvider>
+                </TransactionProvider>
+            </AuthProvider>
+        </BrowserRouter>
+    </ThemeProvider>
 );

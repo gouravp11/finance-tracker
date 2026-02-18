@@ -3,7 +3,7 @@ import { useTransactions } from "../../context/TransactionContext";
 
 const CATEGORY_OPTIONS = {
     expense: ["Food", "Rent", "Travel", "Shopping", "Utilities", "Entertainment", "Other"],
-    income: ["Salary", "Freelance", "Investment", "Gift", "Other"]
+    income: ["Salary", "Freelance", "Investment", "Gift", "Other"],
 };
 
 function CategorySelect({ options, value, onSelect, placeholder }) {
@@ -25,34 +25,14 @@ function CategorySelect({ options, value, onSelect, placeholder }) {
                 onClick={() => setOpen((v) => !v)}
                 className="mt-1 block w-full border rounded px-3 py-2 text-left flex items-center justify-between"
             >
-                <span className={value ? "text-gray-900" : "text-gray-400"}>
-                    {value || placeholder}
-                </span>
-                <svg
-                    className="ml-2 h-4 w-4 text-gray-500"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    aria-hidden="true"
-                >
-                    <path
-                        fillRule="evenodd"
-                        d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z"
-                        clipRule="evenodd"
-                    />
-                </svg>
+                <span className={value ? "text-gray-900" : "text-gray-400"}>{value || placeholder}</span>
+                <svg className="ml-2 h-4 w-4 text-gray-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.06z" clipRule="evenodd"/></svg>
             </button>
 
             {open && (
                 <ul className="absolute left-0 right-0 mt-1 z-20 bg-white border rounded shadow max-h-48 overflow-auto">
                     {options.map((opt) => (
-                        <li
-                            key={opt}
-                            onClick={() => {
-                                onSelect(opt);
-                                setOpen(false);
-                            }}
-                            className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
-                        >
+                        <li key={opt} onClick={() => { onSelect(opt); setOpen(false); }} className="px-3 py-2 hover:bg-gray-100 cursor-pointer">
                             {opt}
                         </li>
                     ))}
@@ -62,18 +42,14 @@ function CategorySelect({ options, value, onSelect, placeholder }) {
     );
 }
 
-export default function AddTransactionModal({
-    isOpen,
-    onClose,
-    transaction: editingTransaction = null
-}) {
+export default function AddTransactionModal({ isOpen, onClose, transaction: editingTransaction = null }) {
     const { addTransaction, updateTransaction } = useTransactions();
     const [form, setForm] = useState({
         description: "",
         amount: "",
         type: "expense",
         date: "",
-        category: CATEGORY_OPTIONS.expense[0]
+        category: CATEGORY_OPTIONS.expense[0],
     });
     const [submitting, setSubmitting] = useState(false);
 
@@ -95,24 +71,13 @@ export default function AddTransactionModal({
                 description: tx.description || "",
                 amount: tx.amount != null ? String(tx.amount) : "",
                 type: tx.type || "expense",
-                date:
-                    tx.date ||
-                    (tx.createdAt && typeof tx.createdAt.toDate === "function"
-                        ? tx.createdAt.toDate().toISOString().slice(0, 10)
-                        : tx.date) ||
-                    "",
-                category: tx.category || (CATEGORY_OPTIONS[tx.type || "expense"]?.[0] ?? "")
+                date: tx.date || (tx.createdAt && typeof tx.createdAt.toDate === "function" ? tx.createdAt.toDate().toISOString().slice(0, 10) : tx.date) || "",
+                category: tx.category || (CATEGORY_OPTIONS[tx.type || "expense"]?.[0] ?? ""),
             });
             return;
         }
 
-        setForm({
-            description: "",
-            amount: "",
-            type: "expense",
-            date: "",
-            category: CATEGORY_OPTIONS.expense[0]
-        });
+        setForm({ description: "", amount: "", type: "expense", date: "", category: CATEGORY_OPTIONS.expense[0] });
     }, [isOpen, editingTransaction]);
 
     const handleChange = (e) => {
@@ -139,13 +104,15 @@ export default function AddTransactionModal({
         try {
             if (editingTransaction) {
                 // Update existing transaction
+                console.log("Updating transaction:", editingTransaction.id);
                 await updateTransaction(editingTransaction.id, {
                     description: form.description,
                     amount,
                     type: form.type,
                     date: form.date || new Date().toISOString().slice(0, 10),
-                    category: form.category || ""
+                    category: form.category || "",
                 });
+                console.log("Transaction updated successfully");
             } else {
                 // Add new transaction (Firestore will generate the ID)
                 const transaction = {
@@ -153,26 +120,18 @@ export default function AddTransactionModal({
                     amount,
                     type: form.type,
                     date: form.date || new Date().toISOString().slice(0, 10),
-                    category: form.category || ""
+                    category: form.category || "",
                 };
+                console.log("Adding transaction");
                 await addTransaction(transaction);
+                console.log("Transaction added successfully");
             }
 
             onClose?.();
-            setForm({
-                description: "",
-                amount: "",
-                type: "expense",
-                date: "",
-                category: CATEGORY_OPTIONS.expense[0]
-            });
+            setForm({ description: "", amount: "", type: "expense", date: "", category: CATEGORY_OPTIONS.expense[0] });
         } catch (err) {
             console.error("Submit error:", err);
-            alert(
-                (editingTransaction
-                    ? "Failed to update transaction: "
-                    : "Failed to add transaction: ") + (err.message || err)
-            );
+            alert((editingTransaction ? "Failed to update transaction: " : "Failed to add transaction: ") + (err.message || err));
         } finally {
             setSubmitting(false);
         }
@@ -194,20 +153,14 @@ export default function AddTransactionModal({
                     <h3 id="add-transaction-title" className="text-lg font-semibold">
                         {editingTransaction ? "Edit transaction" : "Add transaction"}
                     </h3>
-                    <button
-                        onClick={onClose}
-                        aria-label="Close modal"
-                        className="text-gray-500 hover:text-gray-700"
-                    >
+                    <button onClick={onClose} aria-label="Close modal" className="text-gray-500 hover:text-gray-700">
                         ×
                     </button>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">
-                            Description
-                        </label>
+                        <label className="block text-sm font-medium text-gray-700">Description</label>
                         <input
                             name="description"
                             value={form.description}
@@ -257,41 +210,21 @@ export default function AddTransactionModal({
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">
-                            Category (optional)
-                        </label>
+                        <label className="block text-sm font-medium text-gray-700">Category (optional)</label>
                         <CategorySelect
                             options={CATEGORY_OPTIONS[form.type] || []}
                             value={form.category}
                             onSelect={(val) => setForm((f) => ({ ...f, category: val }))}
-                            placeholder={
-                                form.type === "expense"
-                                    ? "Select expense category"
-                                    : "Select income category"
-                            }
+                            placeholder={form.type === "expense" ? "Select expense category" : "Select income category"}
                         />
                     </div>
 
                     <div className="flex justify-end space-x-2">
-                        <button
-                            type="button"
-                            onClick={onClose}
-                            className="px-4 py-2 border rounded"
-                        >
+                        <button type="button" onClick={onClose} className="px-4 py-2 border rounded">
                             Cancel
                         </button>
-                        <button
-                            type="submit"
-                            disabled={submitting}
-                            className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-60"
-                        >
-                            {submitting
-                                ? editingTransaction
-                                    ? "Updating..."
-                                    : "Adding..."
-                                : editingTransaction
-                                  ? "Update transaction"
-                                  : "Add transaction"}
+                        <button type="submit" disabled={submitting} className="px-4 py-2 bg-blue-600 text-white rounded disabled:opacity-60">
+                            {submitting ? (editingTransaction ? "Updating..." : "Adding...") : (editingTransaction ? "Update transaction" : "Add transaction")}
                         </button>
                     </div>
                 </form>

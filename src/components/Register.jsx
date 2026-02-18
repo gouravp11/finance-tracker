@@ -34,19 +34,19 @@ export default function Register() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100">
+        <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-slate-900">
             <form
                 onSubmit={handleSubmit}
-                className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md space-y-5"
+                className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg w-full max-w-md space-y-5"
             >
-                <h2 className="text-2xl font-semibold text-center">Create Account</h2>
+                <h2 className="text-2xl font-semibold text-center dark:text-white">Create Account</h2>
 
                 <input
                     name="name"
                     placeholder="Full Name"
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-slate-400"
                 />
 
                 <input
@@ -55,7 +55,7 @@ export default function Register() {
                     placeholder="Email"
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-slate-400"
                 />
 
                 <input
@@ -64,20 +64,20 @@ export default function Register() {
                     placeholder="Password"
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 dark:bg-slate-700 dark:border-slate-600 dark:text-white dark:placeholder-slate-400"
                 />
 
                 {error && <p className="text-sm text-red-500 text-center">{error}</p>}
 
                 <button
                     type="submit"
-                    className="cursor-pointer w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                    className="cursor-pointer w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition dark:bg-blue-700 dark:hover:bg-blue-600"
                 >
                     Register
                 </button>
-                <div className="text-center text-sm text-gray-600 mt-2">
+                <div className="text-center text-sm text-gray-600 dark:text-gray-400 mt-2">
                     Already registered?{" "}
-                    <Link to="/login" className="text-blue-600 underline">
+                    <Link to="/login" className="text-blue-600 dark:text-blue-400 underline">
                         Login
                     </Link>
                 </div>
