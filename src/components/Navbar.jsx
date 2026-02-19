@@ -26,7 +26,7 @@ export default function Navbar() {
                             <>
                                 <button
                                     onClick={() => setShowModal(true)}
-                                    className="px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 text-sm"
+                                    className="cursor-pointer px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 text-sm"
                                 >
                                     Add transaction
                                 </button>
@@ -79,7 +79,7 @@ export default function Navbar() {
                         {user && <ProfileMenu />}
                         <button
                             onClick={() => setMobileOpen((v) => !v)}
-                            className="p-2 rounded text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700"
+                            className="cursor-pointer p-2 rounded text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700"
                             aria-label="Toggle menu"
                         >
                             {mobileOpen ? (
@@ -125,7 +125,7 @@ export default function Navbar() {
                                         setShowModal(true);
                                         setMobileOpen(false);
                                     }}
-                                    className="w-full px-3 py-2 bg-green-500 text-white rounded hover:bg-green-600 text-sm text-left"
+                                    className="cursor-pointer w-full px-3 py-2 bg-green-500 text-white rounded hover:bg-green-600 text-sm text-left"
                                 >
                                     Add transaction
                                 </button>

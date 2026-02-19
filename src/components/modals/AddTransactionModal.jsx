@@ -23,7 +23,7 @@ function CategorySelect({ options, value, onSelect, placeholder }) {
             <button
                 type="button"
                 onClick={() => setOpen((v) => !v)}
-                className="mt-1 block w-full border dark:border-slate-600 rounded px-3 py-2 text-left flex items-center justify-between bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
+                className="cursor-pointer mt-1 block w-full border dark:border-slate-600 rounded px-3 py-2 text-left flex items-center justify-between bg-white dark:bg-slate-700 text-gray-900 dark:text-white"
             >
                 <span
                     className={
@@ -210,7 +210,7 @@ export default function AddTransactionModal({
                     <button
                         onClick={onClose}
                         aria-label="Close modal"
-                        className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl leading-none"
+                        className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 text-2xl leading-none"
                     >
                         ×
                     </button>
@@ -295,14 +295,14 @@ export default function AddTransactionModal({
                         <button
                             type="button"
                             onClick={onClose}
-                            className="px-4 py-2 border dark:border-slate-600 rounded text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition"
+                            className="cursor-pointer px-4 py-2 border dark:border-slate-600 rounded text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition"
                         >
                             Cancel
                         </button>
                         <button
                             type="submit"
                             disabled={submitting}
-                            className="px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded hover:bg-blue-700 dark:hover:bg-blue-600 disabled:opacity-60 transition"
+                            className="cursor-pointer px-4 py-2 bg-blue-600 dark:bg-blue-700 text-white rounded hover:bg-blue-700 dark:hover:bg-blue-600 disabled:opacity-60 transition"
                         >
                             {submitting
                                 ? editingTransaction

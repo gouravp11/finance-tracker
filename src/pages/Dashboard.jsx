@@ -26,7 +26,7 @@ function FilterDropdown({ options, value, onSelect, placeholder }) {
             <button
                 type="button"
                 onClick={() => setOpen((v) => !v)}
-                className="mt-1 block w-full border rounded px-3 py-2 text-left flex items-center justify-between text-sm dark:bg-slate-700 dark:border-slate-600 dark:text-white"
+                className="cursor-pointer mt-1 block w-full border rounded px-3 py-2 text-left flex items-center justify-between text-sm dark:bg-slate-700 dark:border-slate-600 dark:text-white"
             >
                 <span
                     className={
@@ -143,7 +143,7 @@ export default function Dashboard() {
                 {hasActiveFilters && (
                     <button
                         onClick={clearFilters}
-                        className="text-xs text-blue-600 dark:text-blue-400 underline"
+                        className="cursor-pointer text-xs text-blue-600 dark:text-blue-400 underline"
                     >
                         Clear
                     </button>
@@ -265,7 +265,7 @@ export default function Dashboard() {
                         <button
                             onClick={handleSeedDummyData}
                             disabled={seedingData}
-                            className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-60 text-sm font-medium"
+                            className="cursor-pointer px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-60 text-sm font-medium"
                         >
                             {seedingData ? "Adding..." : "Add Sample Transactions"}
                         </button>
@@ -277,7 +277,7 @@ export default function Dashboard() {
             <div className="lg:hidden max-w-7xl mx-auto px-4 pb-2">
                 <button
                     onClick={() => setFiltersOpen((v) => !v)}
-                    className="flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 font-medium"
+                    className="cursor-pointer flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 font-medium"
                 >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path

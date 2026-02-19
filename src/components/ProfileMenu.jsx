@@ -52,7 +52,7 @@ export default function ProfileMenu() {
             {/* Profile Avatar Button */}
             <button
                 onClick={() => setOpen((v) => !v)}
-                className="flex items-center gap-2 px-3 py-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors"
+                className="cursor-pointer flex items-center gap-2 px-3 py-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors"
                 aria-label="User profile menu"
             >
                 <div className="w-8 h-8 bg-blue-600 text-white rounded-full flex items-center justify-center text-sm font-semibold">
@@ -126,7 +126,7 @@ export default function ProfileMenu() {
                         <div className="flex gap-2">
                             <button
                                 onClick={() => updateTheme("light")}
-                                className={`flex-1 px-2 py-2 rounded text-xs font-medium transition-all duration-200 ${
+                                className={`cursor-pointer flex-1 px-2 py-2 rounded text-xs font-medium transition-all duration-200 ${
                                     theme === "light"
                                         ? "bg-blue-600 text-white shadow-md"
                                         : "bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600"
@@ -136,7 +136,7 @@ export default function ProfileMenu() {
                             </button>
                             <button
                                 onClick={() => updateTheme("dark")}
-                                className={`flex-1 px-2 py-2 rounded text-xs font-medium transition-all duration-200 ${
+                                className={`cursor-pointer flex-1 px-2 py-2 rounded text-xs font-medium transition-all duration-200 ${
                                     theme === "dark"
                                         ? "bg-blue-600 text-white shadow-md"
                                         : "bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600"
@@ -146,7 +146,7 @@ export default function ProfileMenu() {
                             </button>
                             <button
                                 onClick={() => updateTheme("auto")}
-                                className={`flex-1 px-2 py-2 rounded text-xs font-medium transition-all duration-200 ${
+                                className={`cursor-pointer flex-1 px-2 py-2 rounded text-xs font-medium transition-all duration-200 ${
                                     theme === "auto"
                                         ? "bg-blue-600 text-white shadow-md"
                                         : "bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-slate-600 border border-gray-200 dark:border-slate-600"
@@ -164,7 +164,7 @@ export default function ProfileMenu() {
                                 setOpen(false);
                                 setExportOpen(true);
                             }}
-                            className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded transition-colors duration-150 flex items-center gap-2"
+                            className="cursor-pointer w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded transition-colors duration-150 flex items-center gap-2"
                         >
                             <span>📥</span>
                             <span>Export Data</span>
@@ -172,7 +172,7 @@ export default function ProfileMenu() {
                         <div className="border-t border-gray-200 dark:border-slate-700 my-2"></div>
                         <button
                             onClick={handleLogout}
-                            className="w-full text-left px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-150 flex items-center gap-2"
+                            className="cursor-pointer w-full text-left px-3 py-2 text-sm text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors duration-150 flex items-center gap-2"
                         >
                             <span>🚪</span>
                             <span>Logout</span>

@@ -68,13 +68,13 @@ export default function TransactionCard({ transaction }) {
                     </div>
                     <button
                         onClick={handleEdit}
-                        className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
+                        className="cursor-pointer text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400"
                     >
                         Edit
                     </button>
                     <button
                         onClick={handleDelete}
-                        className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400"
+                        className="cursor-pointer text-xs sm:text-sm text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400"
                     >
                         Delete
                     </button>

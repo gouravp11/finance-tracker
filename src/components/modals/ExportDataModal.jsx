@@ -50,7 +50,7 @@ export default function ExportDataModal({ isOpen, onClose }) {
                     <button
                         onClick={onClose}
                         aria-label="Close modal"
-                        className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
+                        className="cursor-pointer text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200"
                     >
                         ×
                     </button>
@@ -102,14 +102,14 @@ export default function ExportDataModal({ isOpen, onClose }) {
                         <button
                             type="button"
                             onClick={onClose}
-                            className="px-4 py-2 border rounded hover:bg-gray-50 dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700"
+                            className="cursor-pointer px-4 py-2 border rounded hover:bg-gray-50 dark:border-slate-600 dark:text-gray-300 dark:hover:bg-slate-700"
                         >
                             Cancel
                         </button>
                         <button
                             onClick={handleExport}
                             disabled={exporting}
-                            className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:opacity-60 dark:bg-green-700 dark:hover:bg-green-600"
+                            className="cursor-pointer px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700 disabled:opacity-60 dark:bg-green-700 dark:hover:bg-green-600"
                         >
                             {exporting ? "Exporting..." : "Export"}
                         </button>
