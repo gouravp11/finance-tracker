@@ -89,7 +89,9 @@ export default function ExportDataModal({ isOpen, onClose }) {
                     {message && (
                         <p
                             className={`text-sm ${
-                                message.includes("✓") ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"
+                                message.includes("✓")
+                                    ? "text-green-600 dark:text-green-400"
+                                    : "text-red-600 dark:text-red-400"
                             }`}
                         >
                             {message}

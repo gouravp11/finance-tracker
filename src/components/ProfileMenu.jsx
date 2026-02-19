@@ -73,7 +73,9 @@ export default function ProfileMenu() {
                                 <p className="font-semibold text-gray-900 dark:text-white truncate">
                                     {user?.displayName || "User"}
                                 </p>
-                                <p className="text-sm text-gray-600 dark:text-gray-400 truncate">{user?.email}</p>
+                                <p className="text-sm text-gray-600 dark:text-gray-400 truncate">
+                                    {user?.email}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -82,25 +84,33 @@ export default function ProfileMenu() {
                     <div className="p-4 border-b border-gray-200 dark:border-slate-700 bg-gray-50 dark:bg-slate-700/50 transition-colors duration-200">
                         <div className="grid grid-cols-2 gap-4 text-sm">
                             <div>
-                                <p className="text-gray-600 dark:text-gray-400 text-xs font-medium">Transactions</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-xs font-medium">
+                                    Transactions
+                                </p>
                                 <p className="text-lg font-semibold text-gray-900 dark:text-white mt-1">
                                     {userStats.transactionCount}
                                 </p>
                             </div>
                             <div>
-                                <p className="text-gray-600 dark:text-gray-400 text-xs font-medium">Total Income</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-xs font-medium">
+                                    Total Income
+                                </p>
                                 <p className="text-lg font-semibold text-green-600 dark:text-green-400 mt-1">
-                                    ${userStats.totalIncome.toFixed(0)}
+                                    ₹{userStats.totalIncome.toFixed(0)}
                                 </p>
                             </div>
                             <div>
-                                <p className="text-gray-600 dark:text-gray-400 text-xs font-medium">Total Expenses</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-xs font-medium">
+                                    Total Expenses
+                                </p>
                                 <p className="text-lg font-semibold text-red-600 dark:text-red-400 mt-1">
-                                    ${userStats.totalExpenses.toFixed(0)}
+                                    ₹{userStats.totalExpenses.toFixed(0)}
                                 </p>
                             </div>
                             <div>
-                                <p className="text-gray-600 dark:text-gray-400 text-xs font-medium">Joined</p>
+                                <p className="text-gray-600 dark:text-gray-400 text-xs font-medium">
+                                    Joined
+                                </p>
                                 <p className="text-sm font-semibold text-gray-900 dark:text-white mt-1">
                                     {formatDate(userStats.accountCreatedDate)}
                                 </p>
@@ -110,7 +120,9 @@ export default function ProfileMenu() {
 
                     {/* Theme Selector */}
                     <div className="p-4 border-b border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-800 transition-colors duration-200">
-                        <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wide">Theme</p>
+                        <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2 uppercase tracking-wide">
+                            Theme
+                        </p>
                         <div className="flex gap-2">
                             <button
                                 onClick={() => updateTheme("light")}
@@ -154,7 +166,7 @@ export default function ProfileMenu() {
                             }}
                             className="w-full text-left px-3 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-700 rounded transition-colors duration-150 flex items-center gap-2"
                         >
-                            <span>📥</span> 
+                            <span>📥</span>
                             <span>Export Data</span>
                         </button>
                         <div className="border-t border-gray-200 dark:border-slate-700 my-2"></div>

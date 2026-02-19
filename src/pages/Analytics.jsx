@@ -10,7 +10,7 @@ import {
     CartesianGrid,
     Tooltip,
     Legend,
-    ResponsiveContainer,
+    ResponsiveContainer
 } from "recharts";
 
 export default function Analytics() {
@@ -64,7 +64,7 @@ export default function Analytics() {
         month,
         income: data.income,
         expense: data.expense,
-        balance: data.income - data.expense,
+        balance: data.income - data.expense
     }));
 
     // Colors for charts
@@ -76,41 +76,51 @@ export default function Analytics() {
         "#8B5CF6",
         "#EC4899",
         "#14B8A6",
-        "#F97316",
+        "#F97316"
     ];
 
     const pieExpenseData = expensesByCategory.map((stat) => ({
         name: stat.category,
-        value: stat.total,
+        value: stat.total
     }));
 
     const pieIncomeData = incomeByCategory.map((stat) => ({
         name: stat.category,
-        value: stat.total,
+        value: stat.total
     }));
 
     return (
         <div className="container mx-auto px-4 sm:px-6 lg:px-24 py-6 sm:py-8 dark:bg-slate-900 min-h-screen">
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">Analytics</h1>
+            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8">
+                Analytics
+            </h1>
 
             {/* Summary Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6 border-l-4 border-green-500">
-                    <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">Total Income</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">
+                        Total Income
+                    </p>
                     <p className="text-3xl font-bold text-green-600 dark:text-green-400 mt-2">
-                        ${totalIncome.toFixed(2)}
+                        ₹{totalIncome.toFixed(2)}
                     </p>
                 </div>
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6 border-l-4 border-red-500">
-                    <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">Total Expenses</p>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">
+                        Total Expenses
+                    </p>
                     <p className="text-3xl font-bold text-red-600 dark:text-red-400 mt-2">
-                        ${totalExpenses.toFixed(2)}
+                        ₹{totalExpenses.toFixed(2)}
                     </p>
                 </div>
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6 border-l-4 border-blue-500">
-                    <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">Balance</p>
-                    <p className={`text-3xl font-bold mt-2 ${balance >= 0 ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}>
-                        ${balance.toFixed(2)}
+                    <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">
+                        Balance
+                    </p>
+                    <p
+                        className={`text-3xl font-bold mt-2 ${balance >= 0 ? "text-green-600 dark:text-green-400" : "text-red-600 dark:text-red-400"}`}
+                    >
+                        ₹{balance.toFixed(2)}
                     </p>
                 </div>
             </div>
@@ -119,7 +129,9 @@ export default function Analytics() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8">
                 {/* Expenses Pie Chart */}
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Expenses Distribution</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                        Expenses Distribution
+                    </h2>
                     {pieExpenseData.length > 0 ? (
                         <ResponsiveContainer width="100%" height={300}>
                             <PieChart>
@@ -128,16 +140,19 @@ export default function Analytics() {
                                     cx="50%"
                                     cy="50%"
                                     labelLine={false}
-                                    label={({ name, value }) => `${name}: $${value.toFixed(0)}`}
+                                    label={({ name, value }) => `${name}: ₹${value.toFixed(0)}`}
                                     outerRadius={80}
                                     fill="#8884d8"
                                     dataKey="value"
                                 >
                                     {pieExpenseData.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                        <Cell
+                                            key={`cell-${index}`}
+                                            fill={COLORS[index % COLORS.length]}
+                                        />
                                     ))}
                                 </Pie>
-                                <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
+                                <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
                             </PieChart>
                         </ResponsiveContainer>
                     ) : (
@@ -149,7 +164,9 @@ export default function Analytics() {
 
                 {/* Income Pie Chart */}
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Income Distribution</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                        Income Distribution
+                    </h2>
                     {pieIncomeData.length > 0 ? (
                         <ResponsiveContainer width="100%" height={300}>
                             <PieChart>
@@ -158,16 +175,19 @@ export default function Analytics() {
                                     cx="50%"
                                     cy="50%"
                                     labelLine={false}
-                                    label={({ name, value }) => `${name}: $${value.toFixed(0)}`}
+                                    label={({ name, value }) => `${name}: ₹${value.toFixed(0)}`}
                                     outerRadius={80}
                                     fill="#8884d8"
                                     dataKey="value"
                                 >
                                     {pieIncomeData.map((entry, index) => (
-                                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                                        <Cell
+                                            key={`cell-${index}`}
+                                            fill={COLORS[index % COLORS.length]}
+                                        />
                                     ))}
                                 </Pie>
-                                <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
+                                <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
                             </PieChart>
                         </ResponsiveContainer>
                     ) : (
@@ -180,14 +200,16 @@ export default function Analytics() {
 
             {/* Monthly Trend Chart */}
             <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-4 sm:p-6 mt-6 sm:mt-8">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Monthly Trends</h2>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                    Monthly Trends
+                </h2>
                 {monthlyData.length > 0 ? (
                     <ResponsiveContainer width="100%" height={400}>
                         <BarChart data={monthlyData}>
                             <CartesianGrid strokeDasharray="3 3" stroke="#475569" />
                             <XAxis dataKey="month" stroke="#9CA3AF" />
                             <YAxis stroke="#9CA3AF" />
-                            <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
+                            <Tooltip formatter={(value) => `₹${value.toFixed(2)}`} />
                             <Legend />
                             <Bar dataKey="income" fill="#10B981" name="Income" />
                             <Bar dataKey="expense" fill="#EF4444" name="Expenses" />
@@ -205,7 +227,9 @@ export default function Analytics() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mt-6 sm:mt-8">
                 {/* Expenses by Category */}
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Expenses by Category</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                        Expenses by Category
+                    </h2>
                     {expensesByCategory.length > 0 ? (
                         <div className="space-y-3">
                             {expensesByCategory.map((stat, idx) => (
@@ -219,27 +243,36 @@ export default function Analytics() {
                                                 className="bg-red-500 h-2 rounded-full"
                                                 style={{
                                                     width: `${
-                                                        (stat.total / Math.max(...expensesByCategory.map((s) => s.total))) *
+                                                        (stat.total /
+                                                            Math.max(
+                                                                ...expensesByCategory.map(
+                                                                    (s) => s.total
+                                                                )
+                                                            )) *
                                                         100
-                                                    }%`,
+                                                    }%`
                                                 }}
                                             ></div>
                                         </div>
                                     </div>
                                     <p className="text-sm font-semibold text-red-600 ml-4">
-                                        ${stat.total.toFixed(2)}
+                                        ₹{stat.total.toFixed(2)}
                                     </p>
                                 </div>
                             ))}
                         </div>
                     ) : (
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">No expense data available</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">
+                            No expense data available
+                        </p>
                     )}
                 </div>
 
                 {/* Income by Category */}
                 <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-6">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Income by Category</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                        Income by Category
+                    </h2>
                     {incomeByCategory.length > 0 ? (
                         <div className="space-y-3">
                             {incomeByCategory.map((stat, idx) => (
@@ -253,28 +286,37 @@ export default function Analytics() {
                                                 className="bg-green-500 h-2 rounded-full"
                                                 style={{
                                                     width: `${
-                                                        (stat.total / Math.max(...incomeByCategory.map((s) => s.total))) *
+                                                        (stat.total /
+                                                            Math.max(
+                                                                ...incomeByCategory.map(
+                                                                    (s) => s.total
+                                                                )
+                                                            )) *
                                                         100
-                                                    }%`,
+                                                    }%`
                                                 }}
                                             ></div>
                                         </div>
                                     </div>
                                     <p className="text-sm font-semibold text-green-600 ml-4">
-                                        ${stat.total.toFixed(2)}
+                                        ₹{stat.total.toFixed(2)}
                                     </p>
                                 </div>
                             ))}
                         </div>
                     ) : (
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">No income data available</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">
+                            No income data available
+                        </p>
                     )}
                 </div>
             </div>
 
             {/* Monthly Overview */}
             <div className="bg-white dark:bg-slate-800 rounded-lg shadow p-4 sm:p-6 mt-6 sm:mt-8">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Monthly Overview</h2>
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
+                    Monthly Overview
+                </h2>
                 {monthlyData.length > 0 ? (
                     <div className="overflow-x-auto">
                         <table className="w-full text-sm">
@@ -296,20 +338,25 @@ export default function Analytics() {
                             </thead>
                             <tbody>
                                 {monthlyData.map((row, idx) => (
-                                    <tr key={idx} className="border-b dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700">
-                                        <td className="py-2 px-2 text-gray-700 dark:text-gray-300">{row.month}</td>
+                                    <tr
+                                        key={idx}
+                                        className="border-b dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700"
+                                    >
+                                        <td className="py-2 px-2 text-gray-700 dark:text-gray-300">
+                                            {row.month}
+                                        </td>
                                         <td className="text-right py-2 px-2 text-green-600 font-semibold">
-                                            ${row.income.toFixed(2)}
+                                            ₹{row.income.toFixed(2)}
                                         </td>
                                         <td className="text-right py-2 px-2 text-red-600 font-semibold">
-                                            ${row.expense.toFixed(2)}
+                                            ₹{row.expense.toFixed(2)}
                                         </td>
                                         <td
                                             className={`text-right py-2 px-2 font-semibold ${
                                                 row.balance >= 0 ? "text-green-600" : "text-red-600"
                                             }`}
                                         >
-                                            ${row.balance.toFixed(2)}
+                                            ₹{row.balance.toFixed(2)}
                                         </td>
                                     </tr>
                                 ))}
@@ -317,7 +364,9 @@ export default function Analytics() {
                         </table>
                     </div>
                 ) : (
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">No transaction data available</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                        No transaction data available
+                    </p>
                 )}
             </div>
         </div>

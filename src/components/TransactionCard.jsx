@@ -64,7 +64,7 @@ export default function TransactionCard({ transaction }) {
                     <div
                         className={`px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-semibold ${isIncome ? "bg-green-50 dark:bg-green-900/30 text-green-600 dark:text-green-400" : "bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400"}`}
                     >
-                        {sign}${Math.abs(amount)}
+                        {sign}₹{Math.abs(amount)}
                     </div>
                     <button
                         onClick={handleEdit}

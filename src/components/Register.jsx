@@ -39,7 +39,9 @@ export default function Register() {
                 onSubmit={handleSubmit}
                 className="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg w-full max-w-md mx-4 sm:mx-auto space-y-5"
             >
-                <h2 className="text-2xl font-semibold text-center dark:text-white">Create Account</h2>
+                <h2 className="text-2xl font-semibold text-center dark:text-white">
+                    Create Account
+                </h2>
 
                 <input
                     name="name"

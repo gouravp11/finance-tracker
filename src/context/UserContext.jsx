@@ -11,7 +11,7 @@ export function UserProvider({ children }) {
         transactionCount: 0,
         accountCreatedDate: null,
         totalIncome: 0,
-        totalExpenses: 0,
+        totalExpenses: 0
     });
 
     useEffect(() => {
@@ -37,12 +37,12 @@ export function UserProvider({ children }) {
             transactionCount,
             accountCreatedDate,
             totalIncome,
-            totalExpenses,
+            totalExpenses
         });
     }, [user, transactions]);
 
     const value = {
-        userStats,
+        userStats
     };
 
     return <UserContext.Provider value={value}>{children}</UserContext.Provider>;

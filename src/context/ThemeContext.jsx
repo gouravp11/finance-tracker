@@ -23,11 +23,7 @@ export function ThemeProvider({ children }) {
         setTheme(newTheme);
     };
 
-    return (
-        <ThemeContext.Provider value={{ theme, updateTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
+    return <ThemeContext.Provider value={{ theme, updateTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

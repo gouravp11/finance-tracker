@@ -8,11 +8,11 @@ export const formatDateByPreference = (dateStr, format = null) => {
     if (!dateStr) return "—";
 
     const dateFormat = format || localStorage.getItem("dateFormat") || "MM/DD/YYYY";
-    
+
     try {
         // Parse the date - handle both YYYY-MM-DD and full ISO strings
         const date = new Date(dateStr);
-        
+
         if (isNaN(date.getTime())) return dateStr;
 
         const year = date.getFullYear();
@@ -53,4 +53,3 @@ export function applyTheme(theme) {
         }
     }
 }
-

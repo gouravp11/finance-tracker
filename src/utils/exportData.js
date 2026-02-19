@@ -18,7 +18,7 @@ export const exportToCSV = (transactions, filename = "transactions.csv") => {
         `"${(t.description || "").replace(/"/g, '""')}"`, // Escape quotes in description
         t.category || "",
         t.type || "",
-        t.amount || "",
+        t.amount || ""
     ]);
 
     // Combine headers and rows
