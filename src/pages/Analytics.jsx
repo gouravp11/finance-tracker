@@ -325,13 +325,13 @@ export default function Analytics() {
                                     <th className="text-left py-2 px-2 font-semibold text-gray-700 dark:text-gray-300">
                                         Month
                                     </th>
-                                    <th className="text-right py-2 px-2 font-semibold text-green-600">
+                                    <th className="text-right py-2 px-2 font-semibold text-gray-700 dark:text-gray-300">
                                         Income
                                     </th>
-                                    <th className="text-right py-2 px-2 font-semibold text-red-600">
+                                    <th className="text-right py-2 px-2 font-semibold text-gray-700 dark:text-gray-300">
                                         Expenses
                                     </th>
-                                    <th className="text-right py-2 px-2 font-semibold text-blue-600">
+                                    <th className="text-right py-2 px-2 font-semibold text-gray-700 dark:text-gray-300">
                                         Balance
                                     </th>
                                 </tr>
